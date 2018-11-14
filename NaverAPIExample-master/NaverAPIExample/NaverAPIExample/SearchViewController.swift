@@ -42,4 +42,6 @@ class SearchViewController: UIViewController {
         }
     }
  
+    @IBAction func info(_ sender: Any) {
+    }
 }
