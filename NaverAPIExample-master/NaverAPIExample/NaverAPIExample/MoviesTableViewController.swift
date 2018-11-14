@@ -15,8 +15,8 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
     
     let posterImageQueue = DispatchQueue(label: "posterImage")
     
-    let clientID        = "huN1_ueBcLHV9AnTNwpi"    // ClientID
-    let clientSecret    = "kb3OGCZ9rC"              // ClientSecret
+    let clientID        = "75mkVPNFOQVf1jFmHi5F"    // ClientID
+    let clientSecret    = "Gsy2Q8EJ3_"              // ClientSecret
     
     var queryText:String?                   // SearchVC에서 받아 오는 검색어
     var movies:[Movie]              = []    // API를 통해 받아온 결과를 저장할 array
