@@ -233,7 +233,7 @@
         <!--Title-->
         <scene sceneID="hJQ-K0-r00">
             <objects>
-                <viewController id="sTi-65-Dji" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InformationStoryBoard" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sTi-65-Dji" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gxf-D7-S45">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -245,15 +245,33 @@
                                     <navigationItem title="Title" id="f6b-8e-h5g"/>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJy-xq-vr8">
+                                <rect key="frame" x="146" y="261" width="82" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="수동으로 넣기"/>
+                                <connections>
+                                    <segue destination="d7k-sj-uXe" kind="push" id="6qV-xV-LqP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="info screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfN-lJ-9KW">
+                                <rect key="frame" x="159" y="173" width="85" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="S5j-6n-Xmb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="vdV-9k-Rml"/>
+                    <connections>
+                        <segue destination="d7k-sj-uXe" kind="push" id="e0m-jw-J13"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9R-pp-OII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="828" y="419"/>
+            <point key="canvasLocation" x="828" y="418.74062968515744"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ybQ-r0-6uj">
@@ -265,6 +283,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="eGg-1x-bWH"/>
                     </view>
+                    <navigationItem key="navigationItem" id="JJh-Ym-GS7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ea3-c4-Zui" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -277,6 +296,15 @@
                     <view key="view" contentMode="scaleToFill" id="8l3-ph-6ie">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="map screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4v1-xI-3E0">
+                                <rect key="frame" x="130" y="268" width="90" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="UWN-Ic-BYf"/>
                     </view>
@@ -307,4 +335,7 @@
     <resources>
         <image name="noImage" width="275" height="275"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="e0m-jw-J13"/>
+    </inferredMetricsTieBreakers>
 </document>
