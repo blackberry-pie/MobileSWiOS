@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0CA88AB21A023D10097B5FB /* ApiGatewayMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CA88AA21A023D10097B5FB /* ApiGatewayMac.framework */; };
+		D0CA88AC21A023D10097B5FB /* ApiGatewayMac.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D0CA88AA21A023D10097B5FB /* ApiGatewayMac.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D0CA88B021A023E90097B5FB /* NMapViewerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0CA88A321A023810097B5FB /* NMapViewerSDK.framework */; };
+		D0CA88B421A027B50097B5FB /* NaverMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CA88B321A027B50097B5FB /* NaverMapViewController.swift */; };
+		D0CA88B621A029370097B5FB /* NMapViewResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0CA88B521A029370097B5FB /* NMapViewResources.swift */; };
 		FC1AC7212076092E0082F677 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AC7202076092E0082F677 /* SearchViewController.swift */; };
 		FC1AC7232076095E0082F677 /* MoviesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AC7222076095E0082F677 /* MoviesTableViewController.swift */; };
 		FC1AC72820760D9A0082F677 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1AC72720760D9A0082F677 /* Model.swift */; };
@@ -17,7 +22,29 @@
 		FCD539852073871E0085FE4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCD539832073871E0085FE4E /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D0CA88AD21A023D10097B5FB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D0CA88AC21A023D10097B5FB /* ApiGatewayMac.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		D0CA88A121A023630097B5FB /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApiGatewayMac.framework; path = Frameworks/ApiGatewayMac.framework; sourceTree = "<group>"; };
+		D0CA88A321A023810097B5FB /* NMapViewerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NMapViewerSDK.framework; path = Frameworks/NMapViewerSDK.framework; sourceTree = "<group>"; };
+		D0CA88A721A0238C0097B5FB /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApiGatewayMac.framework; path = Frameworks/ApiGatewayMac.framework; sourceTree = "<group>"; };
+		D0CA88AA21A023D10097B5FB /* ApiGatewayMac.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApiGatewayMac.framework; path = Frameworks/ApiGatewayMac.framework; sourceTree = "<group>"; };
+		D0CA88AE21A023DE0097B5FB /* NaverAPIExample */ = {isa = PBXFileReference; lastKnownFileType = folder; path = NaverAPIExample; sourceTree = "<group>"; };
+		D0CA88B221A0253E0097B5FB /* NaverMapHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NaverMapHeader.h; sourceTree = "<group>"; };
+		D0CA88B321A027B50097B5FB /* NaverMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverMapViewController.swift; sourceTree = "<group>"; };
+		D0CA88B521A029370097B5FB /* NMapViewResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NMapViewResources.swift; sourceTree = "<group>"; };
 		FC1AC7202076092E0082F677 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FC1AC7222076095E0082F677 /* MoviesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewController.swift; sourceTree = "<group>"; };
 		FC1AC72720760D9A0082F677 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -35,17 +62,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0CA88B021A023E90097B5FB /* NMapViewerSDK.framework in Frameworks */,
+				D0CA88AB21A023D10097B5FB /* ApiGatewayMac.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D0CA88A021A023620097B5FB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D0CA88AE21A023DE0097B5FB /* NaverAPIExample */,
+				D0CA88A121A023630097B5FB /* ApiGatewayMac.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FCD5396E2073871C0085FE4E = {
 			isa = PBXGroup;
 			children = (
+				D0CA88A721A0238C0097B5FB /* ApiGatewayMac.framework */,
+				D0CA88AA21A023D10097B5FB /* ApiGatewayMac.framework */,
+				D0CA88A321A023810097B5FB /* NMapViewerSDK.framework */,
 				FCD539792073871C0085FE4E /* NaverAPIExample */,
 				FCD539782073871C0085FE4E /* Products */,
+				D0CA88A021A023620097B5FB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +111,9 @@
 				FC1AC7222076095E0082F677 /* MoviesTableViewController.swift */,
 				FC1AC72720760D9A0082F677 /* Model.swift */,
 				FC1AC7292076154C0082F677 /* MoviesTableViewCell.swift */,
+				D0CA88B221A0253E0097B5FB /* NaverMapHeader.h */,
+				D0CA88B321A027B50097B5FB /* NaverMapViewController.swift */,
+				D0CA88B521A029370097B5FB /* NMapViewResources.swift */,
 			);
 			path = NaverAPIExample;
 			sourceTree = "<group>";
@@ -83,6 +128,8 @@
 				FCD539732073871C0085FE4E /* Sources */,
 				FCD539742073871C0085FE4E /* Frameworks */,
 				FCD539752073871C0085FE4E /* Resources */,
+				D0CA88AD21A023D10097B5FB /* Embed Frameworks */,
+				D0CA88B121A024C30097B5FB /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -139,6 +186,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D0CA88B121A024C30097B5FB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/Users/phoenix/Desktop/MobileSWiOS/NaverAPIExample-master/NaverAPIExample/Scripts/strip-frameworks.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FCD539732073871C0085FE4E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -146,8 +213,10 @@
 			files = (
 				FC1AC72A2076154C0082F677 /* MoviesTableViewCell.swift in Sources */,
 				FC1AC72820760D9A0082F677 /* Model.swift in Sources */,
+				D0CA88B421A027B50097B5FB /* NaverMapViewController.swift in Sources */,
 				FC1AC7232076095E0082F677 /* MoviesTableViewController.swift in Sources */,
 				FC1AC7212076092E0082F677 /* SearchViewController.swift in Sources */,
+				D0CA88B621A029370097B5FB /* NMapViewResources.swift in Sources */,
 				FCD5397B2073871C0085FE4E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,13 +362,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = NaverAPIExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lxml2",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = MobileSWiOS.project;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/NaverAPIExample/NaverMapHeader.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -310,13 +389,23 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				INFOPLIST_FILE = NaverAPIExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lxml2",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = MobileSWiOS.project;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/NaverAPIExample/NaverMapHeader.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

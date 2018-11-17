@@ -94,6 +94,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hko-yo-lzM">
+                            <rect key="frame" x="0.0" y="154" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="지도 넘기기"/>
+                            <connections>
+                                <segue destination="4sO-jZ-95Z" kind="push" id="bvh-rt-vls"/>
+                            </connections>
+                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCellIdentifier" rowHeight="126" id="gX3-4S-Axx" customClass="MoviesTableViewCell" customModule="NaverAPIExample" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="126"/>
@@ -265,9 +273,6 @@
                         <viewLayoutGuide key="safeArea" id="S5j-6n-Xmb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="vdV-9k-Rml"/>
-                    <connections>
-                        <segue destination="d7k-sj-uXe" kind="push" id="e0m-jw-J13"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R9R-pp-OII" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -289,10 +294,10 @@
             </objects>
             <point key="canvasLocation" x="1585" y="419"/>
         </scene>
-        <!--View Controller-->
+        <!--Naver Map View Controller-->
         <scene sceneID="Xs2-eH-zPa">
             <objects>
-                <viewController id="4sO-jZ-95Z" sceneMemberID="viewController">
+                <viewController id="4sO-jZ-95Z" customClass="NaverMapViewController" customModule="NaverAPIExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8l3-ph-6ie">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -308,6 +313,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="UWN-Ic-BYf"/>
                     </view>
+                    <navigationItem key="navigationItem" id="59u-YT-sc1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bp1-hx-m9C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -335,7 +341,4 @@
     <resources>
         <image name="noImage" width="275" height="275"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="e0m-jw-J13"/>
-    </inferredMetricsTieBreakers>
 </document>
