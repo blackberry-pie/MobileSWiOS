@@ -12,7 +12,7 @@ class SearchViewController: UIViewController {
  
     @IBOutlet weak var searchTextField: UITextField!
     @IBAction func searchButtonPressed(_ sender: Any) {
-        if let _ = s1earchTextField.text {
+        if let _ = searchTextField.text {
             performSegue(withIdentifier: "searchSegue", sender: self)
         }
     }
