@@ -43,10 +43,11 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         
         // queryText가 없으면 return
         guard let query = queryText else {
+         
             return
         }
         
-        let urlString = "https://openapi.naver.com/v1/search/movie.xml?query=" + query
+        let urlString = "https://openapi.naver.com/v1/search/local.xml?query=" + query
         let urlWithPercentEscapes = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
         let url = URL(string: urlWithPercentEscapes!)
         
@@ -59,7 +60,8 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             // 에러가 있으면 리턴
             guard error == nil else {
                 print(error as Any)
-                print("task error")// as Any는 지워도 됩니다!
+                print("task error")
+                   print(data)	// as Any는 지워도 됩니다!
                 return
             }
             
@@ -68,7 +70,10 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
                 print("Data is empty")
                 return
             }
-            
+            print(data)
+            print("\n")
+            print(response)
+            print("test\n")
             // 데이터 초기화
             self.item?.actors = ""
             self.item?.director = ""
@@ -77,6 +82,10 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             self.item?.pubDate = ""
             self.item?.title = ""
             self.item?.userRating = ""
+            
+            
+            print(data)
+            print("test2222\n")
             
             // Parse the XML
             let parser = XMLParser(data: Data(data))
