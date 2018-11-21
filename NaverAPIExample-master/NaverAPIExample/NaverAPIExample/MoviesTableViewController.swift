@@ -11,7 +11,7 @@ import os.log
 import SafariServices
 
 class MoviesTableViewController: UITableViewController, XMLParserDelegate{
-    @IBOutlet weak var titleNavigationItem: UINavigationItem!
+   	 @IBOutlet weak var titleNavigationItem: UINavigationItem!
     
     let posterImageQueue = DispatchQueue(label: "posterImage")
     
@@ -65,14 +65,19 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
                 return
             }
             
+            //let str = String(data: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) ?? ""
             // 데이터가 비었으면 출력 후 리턴
             guard let data = data else {
                 print("Data is empty")
                 return
             }
-            print(data)
+            
+            print("respone : \(response) first \n")
+            print("task : \(request) first \n")
+            print(Data(data))
             print("\n")
-            print(response)
+            
+            //print(response)
             print("test\n")
             // 데이터 초기화
             self.item?.actors = ""
