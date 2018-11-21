@@ -58,7 +58,8 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             // 에러가 있으면 리턴
             guard error == nil else {
-                print(error as Any) // as Any는 지워도 됩니다!
+                print(error as Any)
+                print("task error")// as Any는 지워도 됩니다!
                 return
             }
             
