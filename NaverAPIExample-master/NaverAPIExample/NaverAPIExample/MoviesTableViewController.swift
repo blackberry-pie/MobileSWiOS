@@ -64,6 +64,11 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
                    print(data)	// as Any는 지워도 됩니다!
                 return
             }
+            if let data = data
+            {
+                let str = String(data: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) ?? ""
+                print(str);
+            }
             
             //let str = String(data: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) ?? ""
             // 데이터가 비었으면 출력 후 리턴
@@ -73,8 +78,8 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             }
             
             print("respone : \(response) first \n")
-            print("task : \(request) first \n")
-            print(Data(data))
+            print("request : \(request) second \n")
+            print("Data(data) : \(Data(data)) \n")
             print("\n")
             
             //print(response)
@@ -88,6 +93,12 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             self.item?.title = ""
             self.item?.userRating = ""
             
+            self.item?.description = ""
+            self.item?.telephone = ""
+            self.item?.address = ""
+            self.item?.roadAddress = ""
+            self.item?.mapx = nil
+            self.item?.mapy = nil
             
             print(data)
             print("test2222\n")

@@ -18,6 +18,12 @@ class Movie {
     var director:String?
     var actors:String?
     var userRating:String?
+    var description:String?
+    var telephone:String?
+    var address:String?
+    var roadAddress:String?
+    var mapx:Int?	
+    var mapy:Int?
     
     init() {
         
