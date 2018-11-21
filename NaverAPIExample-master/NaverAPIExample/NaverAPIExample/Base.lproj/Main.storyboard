@@ -94,14 +94,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hko-yo-lzM">
-                            <rect key="frame" x="0.0" y="154" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="지도 넘기기"/>
-                            <connections>
-                                <segue destination="4sO-jZ-95Z" kind="push" id="bvh-rt-vls"/>
-                            </connections>
-                        </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieCellIdentifier" rowHeight="126" id="gX3-4S-Axx" customClass="MoviesTableViewCell" customModule="NaverAPIExample" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="126"/>
