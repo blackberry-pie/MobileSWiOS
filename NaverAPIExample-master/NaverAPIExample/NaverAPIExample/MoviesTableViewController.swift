@@ -120,7 +120,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-        if elementName == "title" || elementName == "link" || elementName == "image" || elementName == "pubDate" || elementName == "director" || elementName == "actor" || elementName == "userRating" {
+        if elementName == "title" || elementName == "link" || elementName == "image" || elementName == "pubDate" || elementName == "director" || elementName == "actor" || elementName == "userRating" || elementName == "mapx" || elementName == "mapy" || elementName == "address" || elementName == "roadAddress" {
             currentElement = ""
             if elementName == "title" {
                 item = Movie()
@@ -158,6 +158,25 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
                 self.tableView.reloadData()
             }
         }
+        
+        else if elementName == "address" {
+            item?.address = currentElement
+        }
+        
+        else if elementName == "roadAddress" {
+            item?.roadAddress = currentElement
+        }
+        
+        
+        /*
+        else if elementName == "mapx" {
+            item?.mapx = currentElement
+        }
+        else if elementName == "mapy" {
+            item?.mapy = currentElement
+        }
+ */
+        
     }
     
     // MARK: - Table view data source
