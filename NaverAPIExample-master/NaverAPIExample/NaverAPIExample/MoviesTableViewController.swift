@@ -47,7 +47,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             return
         }
         
-        let urlString = "https://openapi.naver.com/v1/search/local.xml?query=" + query
+        let urlString = "https://openapi.naver.com/v1/search/movie.xml?query=" + query
         let urlWithPercentEscapes = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
         let url = URL(string: urlWithPercentEscapes!)
         
@@ -64,10 +64,13 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
                    print(data)	// as Any는 지워도 됩니다!
                 return
             }
+            
+            
+             //데이터 반환값 확인용
             if let data = data
             {
-                let str = String(data: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) ?? ""
-                print(str);
+                let data = String(data: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) ?? ""
+                print(data);
             }
             
             //let str = String(data: data, encoding: String.Encoding(rawValue: String.Encoding.utf8.rawValue)) ?? ""
@@ -77,13 +80,13 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
                 return
             }
             
-            print("respone : \(response) first \n")
-            print("request : \(request) second \n")
-            print("Data(data) : \(Data(data)) \n")
-            print("\n")
+            //print("respone : \(response) first \n")
+            //print("request : \(request) second \n")
+            //print("Data(data) : \(Data(data)) \n")
+            //print("\n")
             
             //print(response)
-            print("test\n")
+            //print("test\n")
             // 데이터 초기화
             self.item?.actors = ""
             self.item?.director = ""
@@ -100,15 +103,15 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             self.item?.mapx = nil
             self.item?.mapy = nil
             
-            print(data)
-            print("test2222\n")
+            //	print(data)
+            //print("test2222\n")
             
             // Parse the XML
             let parser = XMLParser(data: Data(data))
             parser.delegate = self
             let success:Bool = parser.parse()
             if success {
-                print(self.strXMLData as Any) // as Any는 지워도 됩니다!
+                print("파서 성공시 출력 : \(self.strXMLData as Any)") // as Any는 지워도 됩니다!
             } else {
                 print("parse failure!")
             }
