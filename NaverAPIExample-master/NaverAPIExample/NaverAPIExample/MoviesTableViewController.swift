@@ -48,7 +48,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             return
         }
         
-        let urlString = "https://openapi.naver.com/v1/search/local.xml?query=" + query
+        let urlString = "https://openapi.naver.com/v1/search/movie.xml?query=" + query
         let urlWithPercentEscapes = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
         let url = URL(string: urlWithPercentEscapes!)
         
@@ -182,8 +182,8 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             item?.mapy = Int(currentElement)
         }
  
-        print("상호명 : \(item!.title)   주소 : \(item!.address) x좌표 : \(item!.mapx) y좌표 : \(item!.mapy)")
-      //  print("영화명 : \(item!.title)   감독 : \(item!.director)")
+        print("상호명 : \(item!.title)   주소 : \(item!.address) x좌표 : \(item!.mapx) y좌표 : \(item!.mapy) 링크 : \(item!.link)")
+        print("영화명 : \(item!.title)   감독 : \(item!.director)")
        
     }
     
@@ -202,50 +202,86 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCellIdentifier", for: indexPath) as! MoviesTableViewCell
         let movie = movies[indexPath.row]
-        
-        guard let title = movie.title, let pubDate = movie.pubDate, let userRating = movie.userRating, let director = movie.director, let actor = movie.actors, let address = movie.address, let roadAddress = movie.roadAddress, let mapx = movie.mapx, let mapy = movie.mapy, let telephone = movie.telephone else {
+       
+        guard let title = movie.title, let pubDate = movie.pubDate, let userRating = movie.userRating, let director = movie.director, let actor = movie.actors else {
             return cell
         }
-        
-        print(movie) // 미출력
-        print("address \(address) ")
-        print("tableView print test")
+ 
+        /*
+        guard let title = movie.title, let address = movie.address, let roadAddress = movie.roadAddress, let mapx = movie.mapx, let mapy = movie.mapy, let telephone = movie.telephone else {
+            return cell
+        }
+        */
+        /*
+         @IBOutlet weak var titleAndYearLabel: UILabel!
+         @IBOutlet weak var posterImageView: UIImageView!
+         @IBOutlet weak var userRatingLabel: UILabel!
+         @IBOutlet weak var directorLabel: UILabel!
+         @IBOutlet weak var actorsLabel: UILabel!
+        */
         // 제목 및 개봉년도 레이블
         //cell.titleAndYearLabel.text = "\(title)(\(pubDate))"
         
-        cell.titleAndYearLabel.text = "\(title)(2018)"
+        cell.titleAndYearLabel.text = "\(title)"
        
         // 평점 레이블
-        /*
+        
+        
         if userRating == "0.00" {
             cell.userRatingLabel.text = "정보 없음"
         } else {
             cell.userRatingLabel.text = "\(userRating)"
+            //cell.userRatingLabel.text = "\(mapx)"
         }
-        */
-        if userRating == "0.00" {
+        // 감독 레이블
+        
+        if director == "" {
+            cell.directorLabel.text = "정보 없음"
+        } else {
+            cell.directorLabel.text = "\(director)"
+            //cell.directorLabel.text = "\(telephone)"
+        }
+        // 출연 배우 레이블
+        
+         if actor == "" {
+         cell.actorsLabel.text = "정보 없음"
+         } else {
+         cell.actorsLabel.text = "\(actor)"
+         // cell.actorsLabel.text = "\(address)"
+         }
+ 
+        
+        /*
+        // 좌표 레이블
+        if mapx == nil {
             cell.userRatingLabel.text = "정보 없음"
         } else {
-            cell.userRatingLabel.text = "\(mapy)"
+            //cell.userRatingLabel.text = "\(userRating)"
+            cell.userRatingLabel.text = "\(mapx),\(mapy)"
         }
+ 
         
-        
-        // 감독 레이블
-        if director == "" {
+       
+ 
+        // 감독=>전화번호 레이블
+        if telephone == "" {
             cell.directorLabel.text = "정보 없음"
         } else {
             //cell.directorLabel.text = "\(director)"
             cell.directorLabel.text = "\(telephone)"
         }
         
-        // 출연 배우 레이블
-        if actor == "" {
+        
+     
+        
+        // 출연 배우 레이블 => 주소 레이블
+        if address == ""	{
             cell.actorsLabel.text = "정보 없음"
         } else {
-            //cell.actorsLabel.text = "\(actor)"
-            cell.actorsLabel.text = "\(address)"
+           // cell.actorsLabel.text = "\(actor)"
+             cell.actorsLabel.text = "\(address)"
         }
-        
+ */
         
         // Async activity
         // 영화 포스터 이미지 불러오기
