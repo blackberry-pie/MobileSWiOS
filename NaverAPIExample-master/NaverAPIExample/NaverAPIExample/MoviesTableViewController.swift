@@ -47,7 +47,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             return
         }
         
-        let urlString = "https://openapi.naver.com/v1/search/movie.xml?query=" + query
+        let urlString = "https://openapi.naver.com/v1/search/local.xml?query=" + query
         let urlWithPercentEscapes = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
         let url = URL(string: urlWithPercentEscapes!)
         
@@ -61,7 +61,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             guard error == nil else {
                 print(error as Any)
                 print("task error")
-                   print(data)	// as Any는 지워도 됩니다!
+                   print(data as Any)	// as Any는 지워도 됩니다!
                 return
             }
             
@@ -161,6 +161,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         
         else if elementName == "address" {
             item?.address = currentElement
+           // item?.actors = currentElement
         }
         
         else if elementName == "roadAddress" {
@@ -168,16 +169,19 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         }
         
         
-        /*
+        
         else if elementName == "mapx" {
-            item?.mapx = currentElement
+            item?.mapx = Int(currentElement)
         }
         else if elementName == "mapy" {
-            item?.mapy = currentElement
+            item?.mapy = Int(currentElement)
         }
- */
+ 
+        print("상호명 : \(item!.title)   주소 : \(item!.address)")
+       // print("영화명 : \(item!.title)   감독 : \(item!.director)")
         
     }
+    
     
     // MARK: - Table view data source
 
@@ -189,12 +193,15 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         return movies.count
     }
 
+    //여기부터 더 파악할것
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCellIdentifier", for: indexPath) as! MoviesTableViewCell
         let movie = movies[indexPath.row]
         guard let title = movie.title, let pubDate = movie.pubDate, let userRating = movie.userRating, let director = movie.director, let actor = movie.actors else {
             return cell
         }
+        
+      //  print("address \(address) ")
         
         // 제목 및 개봉년도 레이블
         cell.titleAndYearLabel.text = "\(title)(\(pubDate))"
