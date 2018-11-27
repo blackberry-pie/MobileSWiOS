@@ -33,6 +33,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             titleNavigationItem.title = title
         }
         searchMovies()
+        print("print item : \(item as Any)")
     }
 
     // MARK: - NaverAPI
@@ -158,17 +159,21 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
                 self.tableView.reloadData()
             }
         }
+            
         
         else if elementName == "address" {
             item?.address = currentElement
            // item?.actors = currentElement
         }
         
-        else if elementName == "roadAddress" {
-            item?.roadAddress = currentElement
+        else if elementName == "telephone" {
+            item?.telephone = currentElement
         }
         
         
+        else if elementName == "roadAddress" {
+            item?.roadAddress = currentElement
+        }
         
         else if elementName == "mapx" {
             item?.mapx = Int(currentElement)
@@ -177,9 +182,9 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             item?.mapy = Int(currentElement)
         }
  
-        print("상호명 : \(item!.title)   주소 : \(item!.address)")
-       // print("영화명 : \(item!.title)   감독 : \(item!.director)")
-        
+        print("상호명 : \(item!.title)   주소 : \(item!.address) x좌표 : \(item!.mapx) y좌표 : \(item!.mapy)")
+      //  print("영화명 : \(item!.title)   감독 : \(item!.director)")
+       
     }
     
     
@@ -197,39 +202,54 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCellIdentifier", for: indexPath) as! MoviesTableViewCell
         let movie = movies[indexPath.row]
-        guard let title = movie.title, let pubDate = movie.pubDate, let userRating = movie.userRating, let director = movie.director, let actor = movie.actors else {
+        
+        guard let title = movie.title, let pubDate = movie.pubDate, let userRating = movie.userRating, let director = movie.director, let actor = movie.actors, let address = movie.address, let roadAddress = movie.roadAddress, let mapx = movie.mapx, let mapy = movie.mapy, let telephone = movie.telephone else {
             return cell
         }
         
-      //  print("address \(address) ")
-        
+        print(movie) // 미출력
+        print("address \(address) ")
+        print("tableView print test")
         // 제목 및 개봉년도 레이블
-        cell.titleAndYearLabel.text = "\(title)(\(pubDate))"
+        //cell.titleAndYearLabel.text = "\(title)(\(pubDate))"
         
+        cell.titleAndYearLabel.text = "\(title)(2018)"
+       
         // 평점 레이블
+        /*
         if userRating == "0.00" {
             cell.userRatingLabel.text = "정보 없음"
         } else {
             cell.userRatingLabel.text = "\(userRating)"
         }
+        */
+        if userRating == "0.00" {
+            cell.userRatingLabel.text = "정보 없음"
+        } else {
+            cell.userRatingLabel.text = "\(mapy)"
+        }
+        
         
         // 감독 레이블
         if director == "" {
             cell.directorLabel.text = "정보 없음"
         } else {
-            cell.directorLabel.text = "\(director)"
+            //cell.directorLabel.text = "\(director)"
+            cell.directorLabel.text = "\(telephone)"
         }
         
         // 출연 배우 레이블
         if actor == "" {
             cell.actorsLabel.text = "정보 없음"
         } else {
-            cell.actorsLabel.text = "\(actor)"
+            //cell.actorsLabel.text = "\(actor)"
+            cell.actorsLabel.text = "\(address)"
         }
         
         
         // Async activity
         // 영화 포스터 이미지 불러오기
+        /*
         if let posterImage = movie.image {
             cell.posterImageView.image = posterImage
         } else {
@@ -244,6 +264,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
                 }
             })
         }
+        */
         return cell
     }
 
