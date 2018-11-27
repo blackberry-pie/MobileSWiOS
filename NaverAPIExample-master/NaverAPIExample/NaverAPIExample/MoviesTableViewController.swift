@@ -48,7 +48,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             return
         }
         
-        let urlString = "https://openapi.naver.com/v1/search/movie.xml?query=" + query
+        let urlString = "https://openapi.naver.com/v1/search/local.xml?query=" + query
         let urlWithPercentEscapes = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
         let url = URL(string: urlWithPercentEscapes!)
         
@@ -92,7 +92,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             self.item?.actors = ""
             self.item?.director = ""
             self.item?.imageURL = ""
-            self.item?.link = ""
+            self.item?.link = ""//음식점 중에 링크가 없는 경욱 많음
             self.item?.pubDate = ""
             self.item?.title = ""
             self.item?.userRating = ""
@@ -182,8 +182,8 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             item?.mapy = Int(currentElement)
         }
  
-        print("상호명 : \(item!.title)   주소 : \(item!.address) x좌표 : \(item!.mapx) y좌표 : \(item!.mapy) 링크 : \(item!.link)")
-        print("영화명 : \(item!.title)   감독 : \(item!.director)")
+        print("상호명 : \(String(describing: item!.title))   주소 : \(item!.address) x좌표 : \(item!.mapx) y좌표 : \(item!.mapy) 링크 : \(item!.link)")
+        //print("영화명 : \(item!.title)   감독 : \(item!.director)")
        
     }
     
@@ -203,15 +203,33 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCellIdentifier", for: indexPath) as! MoviesTableViewCell
         let movie = movies[indexPath.row]
        
+        //영화. UI에 삽입 제대로 동작함
+        /*
         guard let title = movie.title, let pubDate = movie.pubDate, let userRating = movie.userRating, let director = movie.director, let actor = movie.actors else {
             return cell
         }
  
+        */
+        
+        //지역. UI에 삽입 미동작
         /*
         guard let title = movie.title, let address = movie.address, let roadAddress = movie.roadAddress, let mapx = movie.mapx, let mapy = movie.mapy, let telephone = movie.telephone else {
             return cell
         }
         */
+        
+        
+        //영화 + 지역. 삽입 미동작
+        /*
+        guard let title = movie.title, let pubDate = movie.pubDate, let userRating = movie.userRating, let director = movie.director, let actor = movie.actors, let address = movie.address, let roadAddress = movie.roadAddress, let mapx = movie.mapx, let mapy = movie.mapy, let telephone = movie.telephone else {
+            return cell
+        }
+        */
+        
+        //만약에 동작할 경우 미사용 변수는 제거해야지 제대로 UI에 삽입된다는 것임
+        guard let title = movie.title, let address = movie.address, let telephone = movie.telephone else {
+            return cell
+        }
         /*
          @IBOutlet weak var titleAndYearLabel: UILabel!
          @IBOutlet weak var posterImageView: UIImageView!
@@ -220,13 +238,16 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
          @IBOutlet weak var actorsLabel: UILabel!
         */
         // 제목 및 개봉년도 레이블
-        //cell.titleAndYearLabel.text = "\(title)(\(pubDate))"
         
-        cell.titleAndYearLabel.text = "\(title)"
-       
+        /*
+         cell.titleAndYearLabel.text = "\(title)(\(pubDate))"
+         cell.userRatingLabel.text = "\(userRating)"
+         cell.directorLabel.text = "\(director)"
+         cell.actorsLabel.text = "\(actor)"
+         */
         // 평점 레이블
         
-        
+        /*
         if userRating == "0.00" {
             cell.userRatingLabel.text = "정보 없음"
         } else {
@@ -249,6 +270,13 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
          cell.actorsLabel.text = "\(actor)"
          // cell.actorsLabel.text = "\(address)"
          }
+         */
+        
+        
+        cell.titleAndYearLabel.text = "\(title)"
+        cell.actorsLabel.text = "\(address)"
+        cell.directorLabel.text = "\(telephone)"
+        cell.userRatingLabel.text = "0.00"
  
         
         /*
@@ -259,10 +287,10 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             //cell.userRatingLabel.text = "\(userRating)"
             cell.userRatingLabel.text = "\(mapx),\(mapy)"
         }
- 
         
-       
- 
+        
+         
+        
         // 감독=>전화번호 레이블
         if telephone == "" {
             cell.directorLabel.text = "정보 없음"
@@ -281,7 +309,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
            // cell.actorsLabel.text = "\(actor)"
              cell.actorsLabel.text = "\(address)"
         }
- */
+        */
         
         // Async activity
         // 영화 포스터 이미지 불러오기
