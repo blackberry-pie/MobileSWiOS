@@ -48,7 +48,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             return
         }
         
-        let urlString = "https://openapi.naver.com/v1/search/local.xml?query=" + query
+        let urlString = "https://openapi.naver.com/v1/search/movie.xml?query=" + query
         let urlWithPercentEscapes = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
         let url = URL(string: urlWithPercentEscapes!)
         
@@ -183,7 +183,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         }
  
         print("상호명 : \(String(describing: item!.title))   주소 : \(item!.address) x좌표 : \(item!.mapx) y좌표 : \(item!.mapy) 링크 : \(item!.link)")
-        //print("영화명 : \(item!.title)   감독 : \(item!.director)")
+        print("영화명 : \(item!.title)   감독 : \(item!.director)")
        
     }
     
@@ -201,8 +201,11 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
     //여기부터 더 파악할것
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieCellIdentifier", for: indexPath) as! MoviesTableViewCell
+        
+        print("Function call \(indexPath.row)")
+        
         let movie = movies[indexPath.row]
-       
+        
         //영화. UI에 삽입 제대로 동작함
         /*
         guard let title = movie.title, let pubDate = movie.pubDate, let userRating = movie.userRating, let director = movie.director, let actor = movie.actors else {
@@ -227,9 +230,12 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         */
         
         //만약에 동작할 경우 미사용 변수는 제거해야지 제대로 UI에 삽입된다는 것임
+        
         guard let title = movie.title, let address = movie.address, let telephone = movie.telephone else {
             return cell
         }
+        
+        
         /*
          @IBOutlet weak var titleAndYearLabel: UILabel!
          @IBOutlet weak var posterImageView: UIImageView!
@@ -238,13 +244,13 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
          @IBOutlet weak var actorsLabel: UILabel!
         */
         // 제목 및 개봉년도 레이블
-        
         /*
+        
          cell.titleAndYearLabel.text = "\(title)(\(pubDate))"
          cell.userRatingLabel.text = "\(userRating)"
          cell.directorLabel.text = "\(director)"
          cell.actorsLabel.text = "\(actor)"
-         */
+        */
         // 평점 레이블
         
         /*
@@ -272,12 +278,12 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
          }
          */
         
-        
-        cell.titleAndYearLabel.text = "\(title)"
-        cell.actorsLabel.text = "\(address)"
-        cell.directorLabel.text = "\(telephone)"
+        /*
+        cell.titleAndYearLabel.text = "타이틀"//"\(title)"
+        cell.actorsLabel.text = "정보테스트"//"\(address)"
+        cell.directorLabel.text = "텍스트"//"\(telephone)"
         cell.userRatingLabel.text = "0.00"
- 
+        */
         
         /*
         // 좌표 레이블

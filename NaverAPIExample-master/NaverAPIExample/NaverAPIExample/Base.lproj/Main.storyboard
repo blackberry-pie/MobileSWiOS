@@ -103,16 +103,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bQy-mo-xzS">
-                                            <rect key="frame" x="8" y="8" width="359" height="109.5"/>
+                                            <rect key="frame" x="8" y="8" width="359" height="110"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="Oay-ET-cxa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="109.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="110"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="kgl-bS-ycs"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="orJ-06-2qP">
-                                                    <rect key="frame" x="100" y="0.0" width="259" height="109.5"/>
+                                                    <rect key="frame" x="100" y="0.0" width="259" height="110"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="리틀 포레스트(2018)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je2-rg-se3" userLabel="영화 제목(제작년도)">
                                                             <rect key="frame" x="0.0" y="0.0" width="146" height="35"/>
@@ -124,7 +124,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="grB-wQ-ZK9">
-                                                            <rect key="frame" x="0.0" y="43" width="259" height="66.5"/>
+                                                            <rect key="frame" x="0.0" y="43.5" width="259" height="66.5"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Y41-lT-Srd" userLabel="Rating Stack View">
                                                                     <rect key="frame" x="0.0" y="0.0" width="68.5" height="20.5"/>
@@ -201,10 +201,10 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="bQy-mo-xzS" secondAttribute="bottom" constant="8" id="cdd-1i-Eyr"/>
-                                        <constraint firstAttribute="trailing" secondItem="bQy-mo-xzS" secondAttribute="trailing" constant="8" id="gZr-yJ-XIe"/>
-                                        <constraint firstItem="bQy-mo-xzS" firstAttribute="leading" secondItem="Fa3-UW-bgD" secondAttribute="leading" constant="8" id="kea-iS-oeQ"/>
-                                        <constraint firstItem="bQy-mo-xzS" firstAttribute="top" secondItem="Fa3-UW-bgD" secondAttribute="top" constant="8" id="nO7-fI-Mqy"/>
+                                        <constraint firstAttribute="bottom" secondItem="bQy-mo-xzS" secondAttribute="bottom" constant="7.5" id="Jtz-z7-8NA"/>
+                                        <constraint firstItem="bQy-mo-xzS" firstAttribute="leading" secondItem="Fa3-UW-bgD" secondAttribute="leading" constant="8" id="bZm-cW-Xec"/>
+                                        <constraint firstItem="bQy-mo-xzS" firstAttribute="top" secondItem="Fa3-UW-bgD" secondAttribute="top" constant="8" id="ttE-g0-bKu"/>
+                                        <constraint firstAttribute="trailing" secondItem="bQy-mo-xzS" secondAttribute="trailing" constant="8" id="yqu-Oj-ZQR"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
