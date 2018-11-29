@@ -32,8 +32,13 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         if let title = queryText {
             titleNavigationItem.title = title
         }
+        print("searchMovie method 실행 전")
         searchMovies()
+        print("searchMovie method 실행 후")
         print("print item : \(item as Any)")
+       /* self.dataSource = self
+        self.delegate = self */
+
     }
 
     // MARK: - NaverAPI
@@ -48,7 +53,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             return
         }
         
-        let urlString = "https://openapi.naver.com/v1/search/movie.xml?query=" + query
+        let urlString = "https://openapi.naver.com/v1/search/local.xml?query=" + query
         let urlWithPercentEscapes = urlString.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
         let url = URL(string: urlWithPercentEscapes!)
         
@@ -92,7 +97,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             self.item?.actors = ""
             self.item?.director = ""
             self.item?.imageURL = ""
-            self.item?.link = ""//음식점 중에 링크가 없는 경욱 많음
+            self.item?.link = ""//음식점 중에 링크가 없는 경우가 많음
             self.item?.pubDate = ""
             self.item?.title = ""
             self.item?.userRating = ""
