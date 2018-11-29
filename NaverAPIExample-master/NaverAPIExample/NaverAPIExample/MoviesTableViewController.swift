@@ -212,12 +212,12 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         let movie = movies[indexPath.row]
         
         //영화. UI에 삽입 제대로 동작함
-        /*
+        
         guard let title = movie.title, let pubDate = movie.pubDate, let userRating = movie.userRating, let director = movie.director, let actor = movie.actors else {
             return cell
         }
  
-        */
+        
         
         //지역. UI에 삽입 미동작
         /*
@@ -235,12 +235,12 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         */
         
         //만약에 동작할 경우 미사용 변수는 제거해야지 제대로 UI에 삽입된다는 것임
-        
+        /*
         guard let title = movie.title, let address = movie.address, let telephone = movie.telephone else {
             return cell
         }
         
-        
+        */
         /*
          @IBOutlet weak var titleAndYearLabel: UILabel!
          @IBOutlet weak var posterImageView: UIImageView!
@@ -258,7 +258,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         */
         // 평점 레이블
         
-        /*
+        
         if userRating == "0.00" {
             cell.userRatingLabel.text = "정보 없음"
         } else {
@@ -281,8 +281,8 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
          cell.actorsLabel.text = "\(actor)"
          // cell.actorsLabel.text = "\(address)"
          }
-         */
         
+
         /*
         cell.titleAndYearLabel.text = "타이틀"//"\(title)"
         cell.actorsLabel.text = "정보테스트"//"\(address)"
@@ -353,4 +353,4 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
     }
     
 }
-
+}
