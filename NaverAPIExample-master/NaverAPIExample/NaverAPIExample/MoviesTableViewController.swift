@@ -353,4 +353,5 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
     }
     
 }
-}
+
+
