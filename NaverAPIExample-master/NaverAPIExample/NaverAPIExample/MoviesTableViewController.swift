@@ -32,12 +32,8 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         if let title = queryText {
             titleNavigationItem.title = title
         }
-        print("searchMovie method 실행 전")
         searchMovies()
-        print("searchMovie method 실행 후")
         print("print item : \(item as Any)")
-       /* self.dataSource = self
-        self.delegate = self */
 
     }
 
@@ -94,18 +90,18 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             //print(response)
             //print("test\n")
             // 데이터 초기화
-            self.item?.actors = ""
-            self.item?.director = ""
+            self.item?.actors = ""// 영화 : 배우 목록 지역: 주소
+            self.item?.director = ""// 영화: 감독 지역 : 전화번호
             self.item?.imageURL = ""
             self.item?.link = ""//음식점 중에 링크가 없는 경우가 많음
             self.item?.pubDate = ""
             self.item?.title = ""
             self.item?.userRating = ""
             
-            self.item?.description = ""
-            self.item?.telephone = ""
-            self.item?.address = ""
-            self.item?.roadAddress = ""
+            self.item?.description = ""//주요 메뉴
+            self.item?.telephone = ""//전화번호
+            self.item?.address = ""//주소
+            self.item?.roadAddress = ""//도로명 주소
             self.item?.mapx = nil
             self.item?.mapy = nil
             
@@ -126,7 +122,7 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
     }
     
     func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
-        if elementName == "title" || elementName == "link" || elementName == "image" || elementName == "pubDate" || elementName == "director" || elementName == "actor" || elementName == "userRating" || elementName == "mapx" || elementName == "mapy" || elementName == "address" || elementName == "roadAddress" {
+        if elementName == "title" || elementName == "link" || elementName == "image" || elementName == "pubDate" || elementName == "director" || elementName == "actor" || elementName == "userRating" || elementName == "mapx" || elementName == "mapy" || elementName == "address" || elementName == "roadAddress" || elementName == "description" {
             currentElement = ""
             if elementName == "title" {
                 item = Movie()
@@ -147,23 +143,51 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
             item?.imageURL = currentElement
         } else if elementName == "pubDate" {
             item?.pubDate = currentElement
-        } else if elementName == "director" {
+        }
+            
+        //영화용
+            /*
+        else if elementName == "director" {
             item?.director = currentElement
+            //지역용
             if item?.director != "" {
                 item?.director?.removeLast()
             }
-        } else if elementName == "actor" {
+        }
+        else if elementName == "actor" {
             item?.actors = currentElement
+            
             if item?.actors != "" {
                 item?.actors?.removeLast()
             }
-        } else if elementName == "userRating" {
+        }
+        else if elementName == "userRating" {
             item?.userRating = currentElement
             movies.append(self.item!)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
+ */
+        //영화용
+ 
+            /*
+        //지역용
+        else if elementName == "telephone" {//전화번호
+            item?.director = currentElement//지역용
+            if item?.director != "" {
+                item?.director?.removeLast()
+            }
+        }
+        else if elementName == "address" { //주소
+            item?.actors = currentElement//지역용
+            if item?.actors != "" {
+                item?.actors?.removeLast()
+            }
+        }
+        //지역용
+            */
+            
             
         
         else if elementName == "address" {
@@ -179,17 +203,28 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         else if elementName == "roadAddress" {
             item?.roadAddress = currentElement
         }
+            
+        else if elementName == "description" {
+            item?.description = currentElement
+        }
         
         else if elementName == "mapx" {
             item?.mapx = Int(currentElement)
         }
         else if elementName == "mapy" {
             item?.mapy = Int(currentElement)
+            
+            movies.append(self.item!)//클래스를 끝에 추가한 후 갱신 후 출력 부분
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
         }
  
-        print("상호명 : \(String(describing: item!.title))   주소 : \(item!.address) x좌표 : \(item!.mapx) y좌표 : \(item!.mapy) 링크 : \(item!.link)")
-        print("영화명 : \(item!.title)   감독 : \(item!.director)")
-       
+        print("상호명 : \(String(describing: item!.title))   주소 : \(item!.address) x좌표 : \(item!.mapx) y좌표 : \(item!.mapy) 링크 : \(item!.link) 전화번호 : \(item!.telephone)")
+        //print("영화명 : \(item!.title)   감독 : \(item!.director)")
+        
+        
+        
+        }
     }
     
     
@@ -212,12 +247,12 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         let movie = movies[indexPath.row]
         
         //영화. UI에 삽입 제대로 동작함
-        
+        /*
         guard let title = movie.title, let pubDate = movie.pubDate, let userRating = movie.userRating, let director = movie.director, let actor = movie.actors else {
             return cell
         }
+        */
  
-        
         
         //지역. UI에 삽입 미동작
         /*
@@ -235,12 +270,12 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         */
         
         //만약에 동작할 경우 미사용 변수는 제거해야지 제대로 UI에 삽입된다는 것임
-        /*
-        guard let title = movie.title, let address = movie.address, let telephone = movie.telephone else {
+        
+        guard let title = movie.title, let address = movie.address, let telephone = movie.telephone, let description = movie.description else {
             return cell
         }
+        var purification:String = String(); //정제한 전화번호 담음
         
-        */
         /*
          @IBOutlet weak var titleAndYearLabel: UILabel!
          @IBOutlet weak var posterImageView: UIImageView!
@@ -257,8 +292,9 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
          cell.actorsLabel.text = "\(actor)"
         */
         // 평점 레이블
+        //	cell.titleAndYearLabel.text = "\(title)(\(pubDate))"
         
-        
+        /*
         if userRating == "0.00" {
             cell.userRatingLabel.text = "정보 없음"
         } else {
@@ -282,45 +318,50 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
          // cell.actorsLabel.text = "\(address)"
          }
         
-
-        /*
-        cell.titleAndYearLabel.text = "타이틀"//"\(title)"
-        cell.actorsLabel.text = "정보테스트"//"\(address)"
-        cell.directorLabel.text = "텍스트"//"\(telephone)"
-        cell.userRatingLabel.text = "0.00"
         */
         
-        /*
-        // 좌표 레이블
-        if mapx == nil {
-            cell.userRatingLabel.text = "정보 없음"
-        } else {
-            //cell.userRatingLabel.text = "\(userRating)"
-            cell.userRatingLabel.text = "\(mapx),\(mapy)"
+        cell.titleAndYearLabel.text = "\(title)"
+        
+        let digitSetTelephone = CharacterSet.decimalDigits
+        for (index, ch) in telephone.unicodeScalars.enumerated()
+        {
+            if digitSetTelephone.contains(ch) {
+                //print("\(index), \(ch), 숫자입니다")
+                purification.append(String(ch))
+                
+            }
+        
+            
         }
+        print(purification);
+            
         
-        
-         
-        
-        // 감독=>전화번호 레이블
-        if telephone == "" {
+        if description == "" {
             cell.directorLabel.text = "정보 없음"
         } else {
-            //cell.directorLabel.text = "\(director)"
-            cell.directorLabel.text = "\(telephone)"
+           cell.directorLabel.text = "\(description)"
         }
         
-        
-     
-        
-        // 출연 배우 레이블 => 주소 레이블
-        if address == ""	{
+        if address == "" {
             cell.actorsLabel.text = "정보 없음"
         } else {
-           // cell.actorsLabel.text = "\(actor)"
-             cell.actorsLabel.text = "\(address)"
+            cell.actorsLabel.text = "\(address)"
         }
-        */
+        
+
+        
+        if telephone == "" {
+            cell.userRatingLabel.text = "\(purification)"
+        } else {
+            cell.userRatingLabel.text = "\(purification)"
+        }
+        
+        
+        
+        
+        
+        
+       
         
         // Async activity
         // 영화 포스터 이미지 불러오기
@@ -353,5 +394,4 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
     }
     
 }
-
 
