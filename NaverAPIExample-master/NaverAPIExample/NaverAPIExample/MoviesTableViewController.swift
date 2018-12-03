@@ -336,16 +336,16 @@ class MoviesTableViewController: UITableViewController, XMLParserDelegate{
         print(purification);
             
         
-        if description == "" {
+        if  address == "" {
             cell.directorLabel.text = "정보 없음"
         } else {
-           cell.directorLabel.text = "\(description)"
+           cell.directorLabel.text = "\(address)"
         }
         
-        if address == "" {
+        if description == "" {
             cell.actorsLabel.text = "정보 없음"
         } else {
-            cell.actorsLabel.text = "\(address)"
+            cell.actorsLabel.text = "\(description)"
         }
         
 
