@@ -96,14 +96,8 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bQy-mo-xzS">
                                             <rect key="frame" x="8" y="8" width="359" height="110"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="Oay-ET-cxa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="110"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="90" id="kgl-bS-ycs"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="orJ-06-2qP">
-                                                    <rect key="frame" x="100" y="0.0" width="259" height="110"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="110"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="음식점" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je2-rg-se3" userLabel="영화 제목(제작년도)">
                                                             <rect key="frame" x="0.0" y="0.0" width="44.5" height="35"/>
@@ -115,7 +109,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="grB-wQ-ZK9">
-                                                            <rect key="frame" x="0.0" y="43.5" width="259" height="66.5"/>
+                                                            <rect key="frame" x="0.0" y="43.5" width="359" height="66.5"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Y41-lT-Srd" userLabel="Rating Stack View">
                                                                     <rect key="frame" x="0.0" y="0.0" width="184.5" height="20.5"/>
@@ -152,10 +146,10 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ajK-lU-JAo" userLabel="Actors Stack View">
-                                                                    <rect key="frame" x="0.0" y="48.5" width="259" height="18"/>
+                                                                    <rect key="frame" x="0.0" y="48.5" width="359" height="18"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="주   소" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWg-60-Gn6">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="37" height="18"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="97.5" height="18"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="56" id="gEt-qV-Map"/>
                                                                             </constraints>
@@ -164,7 +158,7 @@
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="충청남도 아산시 탕정면 선문로221번길 70 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPI-i9-5h4">
-                                                                            <rect key="frame" x="42" y="0.0" width="217" height="18"/>
+                                                                            <rect key="frame" x="102.5" y="0.0" width="256.5" height="18"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="198" id="CDI-gH-uBe"/>
                                                                             </constraints>
@@ -201,7 +195,6 @@
                                 <connections>
                                     <outlet property="actorsLabel" destination="IPI-i9-5h4" id="HsA-d5-7FT"/>
                                     <outlet property="directorLabel" destination="iJW-Bb-KMI" id="yJp-ki-8sl"/>
-                                    <outlet property="posterImageView" destination="Oay-ET-cxa" id="HBR-q0-VaW"/>
                                     <outlet property="titleAndYearLabel" destination="je2-rg-se3" id="rmd-az-ng2"/>
                                     <outlet property="userRatingLabel" destination="ger-II-zsp" id="TDw-vY-x2L"/>
                                 </connections>
@@ -322,7 +315,4 @@
             <point key="canvasLocation" x="81" y="-433"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="noImage" width="275" height="275"/>
-    </resources>
 </document>
